@@ -25,10 +25,10 @@ class AgeGroup(models.TextChoices):
 class Post(TimestampedModel):
   state = models.CharField(max_length=2)
   age_group = models.CharField(
-    max_length=1,
+    max_length=80,
     choices=AgeGroup.choices,
     default=AgeGroup.ADULTS_25_64,
   )
   
   def __str__(self):
-        return f"{self.name} ({self.get_age_group_display()})"
+        return f"{self.state} ({self.get_age_group_display()})"

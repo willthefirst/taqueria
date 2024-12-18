@@ -12,16 +12,21 @@ https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCb
 
 ## Development
 
-Run the virtual environment before anything:
+Clone this repository into a Python virtual environment.
+
+To create a new virtual environment:
 
 ```bash
-python -m venv poopsie-woopsie
+# Create a virtual environment
+python -m venv my_virtual_env
+cd my_virtual_env
+# Then clone this repo
 ```
 
 To run Django:
 
 ```bash
-cd hubby_nubby
+cd burrito
 python manage.py runserver
 ```
 

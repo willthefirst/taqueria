@@ -1,12 +1,12 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Member
+from .models import Post
 
-def members(request):
-  mymembers = Member.objects.all().values
-  template = loader.get_template('all_members.html')
+def get_posts(request):
+  posts = Post.objects.all().values()
+  template = loader.get_template('post_list.html')
   context = {
-    'mymembers': mymembers,
+    'posts': posts,
   }
   return HttpResponse(template.render(context, request))
 
