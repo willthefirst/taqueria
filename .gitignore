@@ -1,0 +1,15 @@
+# General Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+
+# Django Specific
+*/migrations/*
+db.sqlite3
+
+# Environment Variables
+.env
