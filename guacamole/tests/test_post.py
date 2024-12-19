@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Post
+from guacamole.models import Post
 
 class PostTestCase(TestCase):
     def setUp(self):
@@ -9,4 +9,3 @@ class PostTestCase(TestCase):
       """Can read a post"""
       post = Post.objects.get(state="CA")
       self.assertEqual(post.state, "CA")
-      
