@@ -6,7 +6,7 @@
       {% for post in posts %}
       <li>
         State: {{ post.state }} | Age group: {{ post.age_group }} |
-        <a href="posts/{{ post.id }}">Details</a>
+        <a href="{{ post.id }}">Details</a>
       </li>
       {% endfor %}
     </ul>
