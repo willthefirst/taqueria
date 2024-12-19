@@ -50,3 +50,15 @@ To run tests:
 ```bash
 python manage.py test
 ```
+
+To dump fixtures:
+
+```bash
+python manage.py dumpdata guacamole.Post --indent 2  > guacamole/fixtures/posts.json
+```
+
+To load fixtures:
+
+```bash
+python manage.py loaddata guacamole/fixtures/posts
+```

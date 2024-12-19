@@ -1,4 +1,5 @@
 from django.db import models
+
 class TimestampedModel(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   updated = models.DateTimeField(auto_now=True)
@@ -24,4 +25,4 @@ class Post(TimestampedModel):
   )
   
   def __str__(self):
-        return f"{self.state} ({self.get_age_group_display()})"
+    return f"{self.state} ({self.get_age_group_display()})"
