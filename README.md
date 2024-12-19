@@ -13,6 +13,8 @@
 
 ## Development
 
+### Setup
+
 Clone this repository into a Python virtual environment.
 
 To create a new virtual environment:
@@ -23,6 +25,15 @@ python -m venv my_virtual_env
 cd my_virtual_env
 # Then clone this repo
 ```
+
+Then, run the setup:
+
+```bash
+cd burrito
+bash setup.sh
+```
+
+### Useful commands
 
 To run Django:
 
