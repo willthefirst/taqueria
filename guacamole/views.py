@@ -4,16 +4,16 @@ from .models import Post
 
 def get_posts(request):
   posts = Post.objects.all().values()
-  template = loader.get_template('post_list.html')
+  template = loader.get_template('posts_list.html')
   context = {
     'posts': posts,
   }
   return HttpResponse(template.render(context, request))
 
-def details(request, id):
-  mymember = Member.objects.get(id=id)
-  template = loader.get_template('details.html')
+def get_post(request, id):
+  post = Post.objects.get(id=id)
+  template = loader.get_template('post_details.html')
   context = {
-    'mymember': mymember,
+    'post': post,
   }
   return HttpResponse(template.render(context, request))
