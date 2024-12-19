@@ -18,7 +18,6 @@
 Before cloning this repository, it's a good idea to set up a Python virtual environment. To do that:
 
 ```bash
-# Create a virtual environment
 python -m venv my_virtual_env
 ```
 
