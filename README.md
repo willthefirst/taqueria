@@ -11,6 +11,7 @@
   - Can create post (ie. client availability)
   - Can update post
   - Can delete post
+  - posts/ needs pagination and filtering
 
 ## Development
 
