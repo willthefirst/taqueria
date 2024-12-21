@@ -4,9 +4,6 @@
 
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
-- Tests did this work?
-  - I get to 404 when posts/<id> does not exist in DB
-  - I get 404 when I go to some/route/that/does/not/exist
 - Can create post (ie. client availability)
 - Can update post
 - Can delete post

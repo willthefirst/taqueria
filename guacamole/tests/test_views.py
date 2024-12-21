@@ -2,6 +2,15 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from guacamole.models import Post
 
+class GeneralViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_404_page(self):
+        response = self.client.get('/asdf')
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
+
 class MyViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
