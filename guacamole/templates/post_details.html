@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <body>
-    <h1>Post detail</h1>
-    <p>State: {{ post.state }}</p>
-    <p>Age group: {{ post.age_group }}</p>
-    <p>
-      Back to <a href="{% url 'posts_list' %}">posts</a>
-    </p>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  <h1>Post detail</h1>
+  <p>State: {{ post.state }}</p>
+  <p>Age group: {{ post.age_group }}</p>
+  <p>
+    Back to <a href="{% url 'posts_list' %}">posts</a>
+  </p>
+{% endblock content %}
