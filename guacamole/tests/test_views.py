@@ -18,3 +18,9 @@ class MyViewTestCase(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_details.html')
+    
+    def test_post_detail_page_404(self):
+        url = reverse('post_detail', args=[99]) 
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')

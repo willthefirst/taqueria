@@ -11,7 +11,12 @@ def get_posts(request):
   return HttpResponse(template.render(context, request))
 
 def get_post(request, id):
-  post = Post.objects.get(id=id)
+  try:
+    post = Post.objects.get(id=id)
+  except Post.DoesNotExist:
+    template = loader.get_template('404.html')
+    return HttpResponse(template.render({}, request), status=404)
+  
   template = loader.get_template('post_details.html')
   context = {
     'post': post,
