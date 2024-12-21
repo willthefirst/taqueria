@@ -20,8 +20,11 @@
 Run the setup:
 
 ```bash
+cd taqueria
 bash setup.sh
 ```
+
+This will install and activate a Python virtual environment inside the project directory.
 
 ### Useful commands
 
