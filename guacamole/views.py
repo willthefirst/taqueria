@@ -22,3 +22,14 @@ def get_post(request, id):
     'post': post,
   }
   return HttpResponse(template.render(context, request))
+
+# TODO Going to have to sort this out AFTER setting up Django REST framework
+# def create_post(request):
+#   if request.method == 'POST':
+#     title = request.POST.get('title')
+#     content = request.POST.get('content')
+#     post = Post.objects.create(title=title, content=content)
+#     return HttpResponse(f'Post {post.id} created', status=201)
+  
+#   template = loader.get_template('create_post.html')
+#   return HttpResponse(template.render({}, request))

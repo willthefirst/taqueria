@@ -6,7 +6,6 @@
 
 - Auth
 - Admin
-- HTMX
 - REST API
   - Can create post (ie. client availability)
   - Can update post
