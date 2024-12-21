@@ -4,9 +4,13 @@
 
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
-- Can create post (ie. client availability)
-- Can update post
-- Can delete post
+- Auth
+- Admin
+- HTMX
+- REST API
+  - Can create post (ie. client availability)
+  - Can update post
+  - Can delete post
 
 ## Development
 
