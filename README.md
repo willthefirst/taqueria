@@ -25,13 +25,13 @@ Then, from inside the virtual environment, clone the repo:
 
 ```bash
 cd my_virtual_env
-git clone git@github.com:willthefirst/hubby_nubby.git
+git clone git@github.com:willthefirst/taqueria.git
 ```
 
 Then, run the setup:
 
 ```bash
-cd hubby_nubby
+cd taqueria
 bash setup.sh
 ```
 
