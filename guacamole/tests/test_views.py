@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from guacamole.models import Post
 
-class GeneralViewTestCase(TestCase):
+class GlobalViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
