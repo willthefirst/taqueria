@@ -2,6 +2,12 @@
 #!/bin/bash
 # setup.sh
 
+# Create virual environment in current workspace
+python -m venv .venv
+
+# Use the virtual environment
+source .venv/bin/activate
+
 # Install dependencies
 pip install -r requirements.txt
 
