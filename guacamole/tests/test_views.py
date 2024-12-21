@@ -11,7 +11,7 @@ class GeneralViewTestCase(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
 
-class MyViewTestCase(TestCase):
+class PostsViewTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         Post.objects.create(age_group="18-24", state="CA")
