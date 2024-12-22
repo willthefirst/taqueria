@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import api
+from .views import http
   
 urlpatterns = [
-  path("api/", api.urls),
+  path("", http.urls),
 ]

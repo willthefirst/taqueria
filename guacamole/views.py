@@ -3,9 +3,9 @@ from django.template import loader
 from ninja import NinjaAPI
 from .models import Post
 
-api = NinjaAPI()
+http = NinjaAPI()
 
-@api.get("/posts/")
+@http.get("/posts/")
 def get_posts(request):
   posts = Post.objects.all().values()
   template = loader.get_template('posts_list.html')
@@ -14,7 +14,7 @@ def get_posts(request):
   }
   return HttpResponse(template.render(context, request))
 
-@api.get("/posts/{id}")
+@http.get("/posts/{id}")
 def get_post(request, id: int):
   try:
     post = Post.objects.get(id=id)
