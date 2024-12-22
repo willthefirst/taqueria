@@ -14,6 +14,13 @@ def get_posts(request):
   }
   return HttpResponse(template.render(context, request))
 
+@http.post("/posts/")
+def create_post(request):
+    age_group = request.POST.get('age_group')
+    state = request.POST.get('state')
+    post = Post.objects.create(age_group=age_group, state=state)
+    return HttpResponse(f'Post {post.id} created', status=201)
+
 @http.get("/posts/{id}")
 def get_post(request, id: int):
   try:
@@ -29,13 +36,3 @@ def get_post(request, id: int):
   return HttpResponse(template.render(context, request))
 
  
-# TODO Going to have to sort this out AFTER setting up Django REST framework
-# def create_post(request):
-#   if request.method == 'POST':
-#     title = request.POST.get('title')
-#     content = request.POST.get('content')
-#     post = Post.objects.create(title=title, content=content)
-#     return HttpResponse(f'Post {post.id} created', status=201)
-  
-#   template = loader.get_template('create_post.html')
-#   return HttpResponse(template.render({}, request))
