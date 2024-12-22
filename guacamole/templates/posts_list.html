@@ -5,7 +5,7 @@
     {% for post in posts %}
       <li>
         State: {{ post.state }} | Age group: {{ post.age_group }} |
-        <a href="{{ post.id }}" hx-boost="true">Details</a>
+        <a href="{% url 'api-1.0.0:get_post' post.id %}" hx-boost="true">Details</a>
       </li>
     {% endfor %}
   </ul>

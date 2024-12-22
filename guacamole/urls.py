@@ -1,8 +1,6 @@
 from django.urls import path
-from . import views
-
+from .views import api
+  
 urlpatterns = [
-  path('posts/', views.get_posts, name='posts_list'),
-  path('posts/<int:id>', views.get_post, name='post_detail'),
+  path("api/", api.urls),
 ]
-

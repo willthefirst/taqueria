@@ -1,7 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
+from ninja import NinjaAPI
 from .models import Post
 
+api = NinjaAPI()
+
+@api.get("/posts/")
 def get_posts(request):
   posts = Post.objects.all().values()
   template = loader.get_template('posts_list.html')
@@ -10,7 +14,8 @@ def get_posts(request):
   }
   return HttpResponse(template.render(context, request))
 
-def get_post(request, id):
+@api.get("/posts/{id}")
+def get_post(request, id: int):
   try:
     post = Post.objects.get(id=id)
   except Post.DoesNotExist:
@@ -23,6 +28,7 @@ def get_post(request, id):
   }
   return HttpResponse(template.render(context, request))
 
+ 
 # TODO Going to have to sort this out AFTER setting up Django REST framework
 # def create_post(request):
 #   if request.method == 'POST':

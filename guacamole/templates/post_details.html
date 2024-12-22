@@ -4,6 +4,6 @@
   <p>State: {{ post.state }}</p>
   <p>Age group: {{ post.age_group }}</p>
   <p>
-    Back to <a href="{% url 'posts_list' %}" hx-boost="true">posts</a>
+    Back to <a href="{% url 'api-1.0.0:get_posts' %}" hx-boost="true">posts</a>
   </p>
 {% endblock content %}
