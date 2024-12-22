@@ -16,10 +16,15 @@ def get_posts(request):
 
 @http.post("/posts/")
 def create_post(request):
-    age_group = request.POST.get('age_group')
-    state = request.POST.get('state')
-    post = Post.objects.create(age_group=age_group, state=state)
-    return HttpResponse(f'Post {post.id} created', status=201)
+  age_group = request.POST.get('age_group')
+  state = request.POST.get('state')
+  post = Post.objects.create(age_group=age_group, state=state)
+  return HttpResponse(f'Post {post.id} created', status=201)
+
+@http.get("/posts/new")
+def get_post_creator(request):
+  template = loader.get_template('post_creator.html')
+  return HttpResponse(template.render({}, request))
 
 @http.get("/posts/{id}")
 def get_post(request, id: int):

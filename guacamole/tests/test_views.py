@@ -42,3 +42,9 @@ class PostsViewTestCase(TestCase):
         post = Post.objects.last()
         self.assertEqual(post.age_group, '25-64')
         self.assertEqual(post.state, 'NY')
+    
+    def test_get_post_creator(self):
+        url = reverse('api-1.0.0:get_post_creator')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_creator.html')

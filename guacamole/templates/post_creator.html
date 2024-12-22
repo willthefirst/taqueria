@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Create new post</h1>
+  <form method="post" hx-post="{% url 'api-1.0.0:create_post' %}">
+    {% csrf_token %}
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required />
+    <br />
+    <label for="age_group">Age group:</label>
+    <input type="text" id="age_group" name="age_group" required />
+    <br />
+    <button type="submit">Create</button>
+  </form>
+  <p>
+    Back to <a href="{% url 'api-1.0.0:get_posts' %}" hx-boost="true">posts</a>
+  </p>
+{% endblock content %}
