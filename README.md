@@ -8,6 +8,8 @@
 - Admin
 - REST API
   - Can create post (ie. client availability)
+    - Can POST to endpoint
+    - Can render frontend view that will send off postf
   - Can update post
   - Can delete post
   - posts/ needs pagination and filtering
