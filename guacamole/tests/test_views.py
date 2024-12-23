@@ -3,7 +3,7 @@ from django.urls import reverse
 from guacamole.models import Post
 from urllib.parse import urlencode
 
-class GlobalViewTestCase(TestCase):
+class GlobalViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
@@ -12,7 +12,7 @@ class GlobalViewTestCase(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
     
-class RegistrationViewTestCase(TestCase):
+class RegistrationViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
     
@@ -62,7 +62,7 @@ class RegistrationViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/password_reset_complete.html')
 
-class PostsViewTestCase(TestCase):
+class PostViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
         Post.objects.create(age_group="18-24", state="CA")
