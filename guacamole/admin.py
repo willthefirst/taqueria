@@ -1,3 +1,4 @@
 from django.contrib import admin
+from guacamole.models import Post, AgeGroup
 
-# Register your models here.
+admin.site.register(Post)
