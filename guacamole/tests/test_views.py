@@ -36,6 +36,11 @@ class RegistrationViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'django_registration/activation_complete.html')
 
+    def test_login_page(self):
+        response = self.client.get('/accounts/login/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
+
     def test_password_reset_page(self):
         response = self.client.get('/accounts/password_reset/')
         self.assertEqual(response.status_code, 200)
