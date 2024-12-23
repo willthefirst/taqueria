@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_registration',
     'guacamole'
 ]
 
@@ -102,6 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Auth behavior
 LOGIN_REDIRECT_URL = "/posts"
+
+# django-registration
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 
 
 # SMTP settings

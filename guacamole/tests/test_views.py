@@ -11,6 +11,15 @@ class GlobalViewTestCase(TestCase):
         response = self.client.get('/asdf')
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
+    
+class RegistrationViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+    
+    def test_sign_up_page(self):
+        response = self.client.get('/accounts/register/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'django_registration/registration_form.html')
 
 class PostsViewTestCase(TestCase):
     def setUp(self):

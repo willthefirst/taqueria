@@ -7,7 +7,7 @@
     <button type="submit">Login</button>
   </form>
   <p>
-    <a href="{% url 'register' %}">Register</a>
+    {% comment %} <a href="{% url 'register' %}">Register</a> {% endcomment %}
     | <a href="{% url 'password_reset' %}">Forgot password?</a>
   </p>
 {% endblock content %}
