@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Edit post</h1>
+  <form hx-put="{% url 'api-1.0.0:update_post' post.id %}" hx-encoding="json">
+    {% csrf_token %}
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" value="{{ post.state }}" required />
+    <br />
+    <label for="age_group">Age group:</label>
+    <input type="text"
+           id="age_group"
+           name="age_group"
+           value="{{ post.age_group }}"
+           required />
+    <br />
+    <button type="submit">Update</button>
+  </form>
+  <p>
+    Back to <a href="{% url 'api-1.0.0:get_posts' %}" hx-boost="true">posts</a>
+  </p>
+{% endblock content %}
