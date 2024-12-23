@@ -4,8 +4,9 @@
 
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
-- Auth
-- Admin
+- Clean up
+  - Test all auth/registration routes
+  - Organize routes
 - Posts needs pagination and filtering
 
 ## Development
