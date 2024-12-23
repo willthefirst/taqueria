@@ -65,10 +65,19 @@ def update_post(request, id: int):
     return HttpResponse(template.render({}, request), status=404)
   
   put = QueryDict(request.body)
-  print(put)
   post.state = put.get('state')
   post.age_group = put.get('age_group')
   
   post.save()
-
   return HttpResponse(f'Post {post.id} updated', status=200)
+
+@http.delete("/posts/{id}")
+def delete_post(request, id: int):
+  try:
+    post = Post.objects.get(id=id)
+  except Post.DoesNotExist:
+    template = loader.get_template('404.html')
+    return HttpResponse(template.render({}, request), status=404)
+  
+  post.delete()
+  return HttpResponse(f'Post {id} deleted', status=200)

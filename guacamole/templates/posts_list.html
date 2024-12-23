@@ -10,6 +10,10 @@
         State: {{ post.state }} | Age group: {{ post.age_group }} |
         <a href="{% url 'api-1.0.0:get_post' post.id %}" hx-boost="true">Details</a>
         | <a href="{% url 'api-1.0.0:get_post_editor' post.id %}" hx-boost="true">Edit</a>
+        | <a href="{% url 'api-1.0.0:delete_post' post.id %}"
+    hx-delete="{% url 'api-1.0.0:delete_post' post.id %}"
+    hx-confirm="Are you sure you want to delete this?"
+    hx-target="closest li">Delete</a>
       </li>
     {% endfor %}
   </ul>

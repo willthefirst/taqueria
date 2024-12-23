@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Post detail</h1>
-  <p>State: {{ post.state }}</p>
-  <p>Age group: {{ post.age_group }}</p>
-  <p>
-    <a href="{% url 'api-1.0.0:get_post_editor' post.id %}" hx-boost="true">Edit</a>
-  </p>
+  <div id="post-detail">
+    <p>State: {{ post.state }}</p>
+    <p>Age group: {{ post.age_group }}</p>
+    <p>
+      <a href="{% url 'api-1.0.0:get_post_editor' post.id %}" hx-boost="true">Edit</a> |
+      <a href="{% url 'api-1.0.0:delete_post' post.id %}"
+         hx-delete="{% url 'api-1.0.0:delete_post' post.id %}"
+         hx-confirm="Are you sure you want to delete this?"
+         hx-target="#post-detail">Delete</a>
+    </p>
+  </div>
   <p>
     Back to <a href="{% url 'api-1.0.0:get_posts' %}" hx-boost="true">posts</a>
   </p>

@@ -72,3 +72,9 @@ class PostsViewTestCase(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_editor.html')
+    
+    def test_delete_post(self):
+        url = reverse('api-1.0.0:delete_post', args=[1])
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Post.objects.count(), 0)
