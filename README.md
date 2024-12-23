@@ -4,9 +4,13 @@
 
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
-- Clean up
-  - Test all auth/registration routes
-  - Organize routes
+- Permissions/users
+  - Superuser/admin
+    - Can do literally everything
+  - User (ie. provider)
+    - All posts stuff (on their own posts)
+    - All registration stuff (on their own account)
+- User can delete their own account
 - Posts needs pagination and filtering
 
 ## Development
