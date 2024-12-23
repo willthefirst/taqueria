@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep theP secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-g-w+imco@v0%hxb^m#r@$(-*$qv94rrg3n#e@y^s^e5=!j!m3n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -99,6 +99,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Auth behavior
+LOGIN_REDIRECT_URL = "/posts"
+
+
+# SMTP settings
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 # Internationalization

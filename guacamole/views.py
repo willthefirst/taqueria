@@ -4,8 +4,19 @@ from ninja import NinjaAPI
 from .models import Post
 from ninja import Schema
 from django.http import QueryDict
+from .forms import RegistrationForm
 
 http = NinjaAPI()
+
+@http.get("/accounts/register/")
+def sign_up(request):
+  form = RegistrationForm()
+  template = loader.get_template('registration/register.html')
+  context = {
+    'form': form
+  }
+  return HttpResponse(template.render(context, request))
+
 
 @http.get("/posts/")
 def get_posts(request):
