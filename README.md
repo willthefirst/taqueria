@@ -7,7 +7,6 @@
 - Auth
 - Admin
 - REST API
-  - Can update post
   - Can delete post
   - posts/ needs pagination and filtering
 

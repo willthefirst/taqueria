@@ -4,6 +4,9 @@
   <p>State: {{ post.state }}</p>
   <p>Age group: {{ post.age_group }}</p>
   <p>
+    <a href="{% url 'api-1.0.0:get_post_editor' post.id %}" hx-boost="true">Edit</a>
+  </p>
+  <p>
     Back to <a href="{% url 'api-1.0.0:get_posts' %}" hx-boost="true">posts</a>
   </p>
 {% endblock content %}

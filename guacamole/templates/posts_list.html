@@ -9,6 +9,7 @@
       <li>
         State: {{ post.state }} | Age group: {{ post.age_group }} |
         <a href="{% url 'api-1.0.0:get_post' post.id %}" hx-boost="true">Details</a>
+        | <a href="{% url 'api-1.0.0:get_post_editor' post.id %}" hx-boost="true">Edit</a>
       </li>
     {% endfor %}
   </ul>
