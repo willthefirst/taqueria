@@ -37,13 +37,13 @@ class CRUDTestCase(TestCase):
         url = reverse('api-1.0.0:get_posts') 
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'posts_list.html')
+        self.assertTemplateUsed(response, 'posts/posts_list.html')
 
     def test_post_detail_page(self):
         url = reverse('api-1.0.0:get_post', args=[1]) 
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'post_details.html')
+        self.assertTemplateUsed(response, 'posts/post_details.html')
 
     def test_post_detail_page_404(self):
         url = reverse('api-1.0.0:get_post', args=[99]) 
@@ -81,13 +81,13 @@ class CRUDTestCase(TestCase):
         url = reverse('api-1.0.0:get_post_creator')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'post_creator.html')
+        self.assertTemplateUsed(response, 'posts/post_creator.html')
     
     def test_get_post_editor(self):
         url = reverse('api-1.0.0:get_post_editor', args=[1])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'post_editor.html')
+        self.assertTemplateUsed(response, 'posts/post_editor.html')
     
     def test_delete_post(self):
         url = reverse('api-1.0.0:delete_post', args=[1])

@@ -8,7 +8,7 @@ router = Router()
 @router.get("/")
 def get_posts(request):
   posts = Post.objects.all().values()
-  template = loader.get_template('posts_list.html')
+  template = loader.get_template('posts/posts_list.html')
   context = {
     'posts': posts,
   }
@@ -23,7 +23,7 @@ def create_post(request):
 
 @router.get("/new")
 def get_post_creator(request):
-  template = loader.get_template('post_creator.html')
+  template = loader.get_template('posts/post_creator.html')
   return HttpResponse(template.render({}, request))
 
 @router.get("/{id}")
@@ -34,7 +34,7 @@ def get_post(request, id: int):
     template = loader.get_template('404.html')
     return HttpResponse(template.render({}, request), status=404)
   
-  template = loader.get_template('post_details.html')
+  template = loader.get_template('posts/post_details.html')
   context = {
     'post': post,
   }
@@ -48,7 +48,7 @@ def get_post_editor(request, id: int):
     template = loader.get_template('404.html')
     return HttpResponse(template.render({}, request), status=404)
   
-  template = loader.get_template('post_editor.html')
+  template = loader.get_template('posts/post_editor.html')
   context = {
     'post': post,
   }
