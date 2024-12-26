@@ -6,10 +6,11 @@
 
 - Permissions/users
   - Superuser/admin
-    - Can do literally everything
+    - Can do anything to anyone
   - User (ie. provider)
     - All posts stuff (on their own posts)
     - All registration stuff (on their own account)
+- User can sign out
 - User can delete their own account
 - Posts needs pagination and filtering
 
