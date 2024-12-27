@@ -11,7 +11,6 @@ class GlobalViewsTestCase(TestCase):
         response = self.client.get('/asdf')
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
-    
 class RegistrationViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()

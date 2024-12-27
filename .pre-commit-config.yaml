@@ -3,6 +3,6 @@ repos:
     hooks:
       - id: run-guacamole-tests
         name: Run guacamole tests
-        entry: python manage.py test guacamole/tests
+        entry: python manage.py test
         language: system
         pass_filenames: false
