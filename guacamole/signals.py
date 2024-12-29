@@ -7,6 +7,9 @@ User = get_user_model()
 
 @receiver(post_save, sender=User)
 def add_user_to_group(sender, instance, created, **kwargs):
+    if instance.is_superuser:
+        return
+        
     if created:
         group, created = Group.objects.get_or_create(name='Posts')
         instance.groups.add(group)
