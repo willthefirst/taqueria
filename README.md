@@ -5,8 +5,6 @@
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
 - Permissions/users
-  - Superuser/admin
-    - Can do anything to anyone
   - User (ie. provider)
     - All posts stuff (on their own posts)
     - All registration stuff (on their own account)

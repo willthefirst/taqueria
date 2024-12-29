@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Edit post</h1>
-  <form hx-put="{% url 'api-1.0.0:update_post' post.id %}" hx-encoding="json">
-    {% csrf_token %}
+  <form method="post"
+        hx-put="{% url 'api-1.0.0:update_post' post.id %}"
+        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <label for="state">State:</label>
     <input type="text" id="state" name="state" value="{{ post.state }}" required />
     <br />
