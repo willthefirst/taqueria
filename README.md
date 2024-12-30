@@ -5,7 +5,7 @@
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
 - Permissions/users
-  - User should be able to to UD their own posts but not other people (ie. shouldn't see options to do so in the UI when it doesn't belong to them.)
+  - User should be able to to UD their own posts but not other people (ie. shouldn't see options to do so in the UI when it doesn't belong to them.)db
     - All posts stuff (on their own posts)
     - All registration stuff (on their own account)
 - User can sign out
@@ -57,11 +57,11 @@ python manage.py test guacamole/tests
 To dump fixtures:
 
 ```bash
-python manage.py dumpdata guacamole.Post --indent 2  > guacamole/fixtures/posts.json
+python manage.py dumpdata --indent 2  > guacamole/fixtures/data.json
 ```
 
 To load fixtures:
 
 ```bash
-python manage.py loaddata guacamole/fixtures/posts
+python manage.py loaddata guacamole/fixtures/data
 ```
