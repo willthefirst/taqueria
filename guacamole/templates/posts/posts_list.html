@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-  <div>
-    <a href="{% url 'logout' %}">Sign out</a>
-  </div>
   <h1>Posts</h1>
   <p>
     <a href="{% url 'api-1.0.0:get_post_creator' %}" hx-boost="true">Create a new post</a>

@@ -12,7 +12,18 @@
     <script src="{% static '/vendor/htmx/htmx.min-2.0.4.js' %}"></script>
   </head>
   <body>
-    {% block content %}
-    {% endblock content %}
+    <header>
+      {% block navbar %}
+        {% if user.is_authenticated %}
+          <div>
+            <a href="{% url 'logout' %}">Sign out</a>
+          </div>
+        {% endif %}
+      {% endblock navbar %}
+    </header>
+    <main>
+      {% block content %}
+      {% endblock content %}
+    </main>
   </body>
 </html>
