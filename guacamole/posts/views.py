@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404
 from django.template import loader
 from ninja import Router
 from .models import Post
-from django.contrib.auth.decorators import permission_required
 
 router = Router()
 

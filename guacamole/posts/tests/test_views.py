@@ -33,7 +33,16 @@ class AuthTestCase(TestCase):
     response = self.client.get(f'/posts/{post.id}/edit')
     self.assertEqual(response.status_code, 403)
     
-    response = self.client.put(f'/posts/{post.id}', {'age_group': '25-64', 'state': 'NY'})
+    form_data = {
+        'age_group': '25-64',
+        'state': 'NY'
+    }
+    
+    response = self.client.put(
+        f'/posts/{post.id}',
+        data=urlencode(form_data),
+        content_type='application/x-www-form-urlencoded'
+    )
     self.assertEqual(response.status_code, 403)
     
     response = self.client.delete(f'/posts/{post.id}')
@@ -42,12 +51,7 @@ class AuthTestCase(TestCase):
     self.client.login(username='user1', password='password')
     response = self.client.get(f'/posts/{post.id}/edit')
     self.assertEqual(response.status_code, 200)
-    
-    form_data = {
-        'age_group': '25-64',
-        'state': 'NY'
-    }
-    
+
     response = self.client.put(
         f'/posts/{post.id}',
         data=urlencode(form_data),
