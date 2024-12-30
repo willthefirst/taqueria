@@ -1,4 +1,5 @@
 from django.http import HttpResponse, QueryDict
+from django.shortcuts import get_object_or_404
 from django.template import loader
 from ninja import Router
 from .models import Post
@@ -29,12 +30,7 @@ def get_post_creator(request):
 
 @router.get("/{id}")
 def get_post(request, id: int):
-  try:
-    post = Post.objects.get(id=id)
-  except Post.DoesNotExist:
-    template = loader.get_template('404.html')
-    return HttpResponse(template.render({}, request), status=404)
-  
+  post = get_object_or_404(Post, id=id)
   template = loader.get_template('posts/post_details.html')
   context = {
     'post': post,
@@ -43,15 +39,9 @@ def get_post(request, id: int):
 
 @router.get("/{id}/edit")
 def get_post_editor(request, id: int):
-  try:
-    post = Post.objects.get(id=id)
-  except Post.DoesNotExist:
-    template = loader.get_template('404.html')
-    return HttpResponse(template.render({}, request), status=404)
-  
+  post = get_object_or_404(Post, id=id)
   if (post.user != request.user):
     return HttpResponse('Forbidden', status=403)
-  
   template = loader.get_template('posts/post_editor.html')
   context = {
     'post': post,
@@ -60,32 +50,19 @@ def get_post_editor(request, id: int):
     
 @router.put("/{id}")
 def update_post(request, id: int):
-  try:
-    post = Post.objects.get(id=id)
-  except Post.DoesNotExist:
-    template = loader.get_template('404.html')
-    return HttpResponse(template.render({}, request), status=404)
-  
+  post = get_object_or_404(Post, id=id)
   if (post.user != request.user):
     return HttpResponse('Forbidden', status=403)
-  
   put = QueryDict(request.body)
   post.state = put.get('state')
   post.age_group = put.get('age_group')
-  
   post.save()
   return HttpResponse(f'Post {post.id} updated', status=200)
 
 @router.delete("/{id}")
 def delete_post(request, id: int):
-  try:
-    post = Post.objects.get(id=id)
-  except Post.DoesNotExist:
-    template = loader.get_template('404.html')
-    return HttpResponse(template.render({}, request), status=404)
-  
+  post = get_object_or_404(Post, id=id)
   if (post.user != request.user):
     return HttpResponse('Forbidden', status=403)
-  
   post.delete()
   return HttpResponse(f'Post {id} deleted', status=200)

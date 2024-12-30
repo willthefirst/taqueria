@@ -83,7 +83,6 @@ class CRUDTestCase(TestCase):
         url = reverse('api-1.0.0:get_post', args=[99]) 
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, '404.html')
         
     def test_create_post(self):
         url = reverse('api-1.0.0:create_post')
