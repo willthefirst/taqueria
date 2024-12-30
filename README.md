@@ -38,7 +38,7 @@ Then navigate to http://127.0.0.1:8000/ in a browser.
 To create and run a migration:
 
 ```bash
-python manage.py makemigrations mymigration
+python manage.py makemigrations
 python manage.py migrate
 ```
 

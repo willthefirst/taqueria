@@ -2,6 +2,7 @@ from django.http import HttpResponse, QueryDict
 from django.template import loader
 from ninja import Router
 from .models import Post
+from django.contrib.auth.decorators import permission_required
 
 router = Router()
 
@@ -18,7 +19,7 @@ def get_posts(request):
 def create_post(request):
   age_group = request.POST.get('age_group')
   state = request.POST.get('state')
-  post = Post.objects.create(age_group=age_group, state=state)
+  post = Post.objects.create(age_group=age_group, state=state, user=request.user)
   return HttpResponse(f'Post {post.id} created', status=201)
 
 @router.get("/new")
@@ -48,6 +49,9 @@ def get_post_editor(request, id: int):
     template = loader.get_template('404.html')
     return HttpResponse(template.render({}, request), status=404)
   
+  if (post.user != request.user):
+    return HttpResponse('Forbidden', status=403)
+  
   template = loader.get_template('posts/post_editor.html')
   context = {
     'post': post,
@@ -61,6 +65,9 @@ def update_post(request, id: int):
   except Post.DoesNotExist:
     template = loader.get_template('404.html')
     return HttpResponse(template.render({}, request), status=404)
+  
+  if (post.user != request.user):
+    return HttpResponse('Forbidden', status=403)
   
   put = QueryDict(request.body)
   post.state = put.get('state')
@@ -76,6 +83,9 @@ def delete_post(request, id: int):
   except Post.DoesNotExist:
     template = loader.get_template('404.html')
     return HttpResponse(template.render({}, request), status=404)
+  
+  if (post.user != request.user):
+    return HttpResponse('Forbidden', status=403)
   
   post.delete()
   return HttpResponse(f'Post {id} deleted', status=200)

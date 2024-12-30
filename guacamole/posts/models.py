@@ -17,6 +17,7 @@ class AgeGroup(models.TextChoices):
   OLDER_ADULTS_65_PLUS = '65+', 'Older Adults (65 +)'
   
 class Post(TimestampedModel):
+  user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
   state = models.CharField(max_length=2)
   age_group = models.CharField(
     max_length=80,
