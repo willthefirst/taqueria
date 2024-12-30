@@ -10,7 +10,6 @@ router = Router()
 def get_posts(request):
   posts = Post.objects.all().values()
   template = loader.get_template('posts/posts_list.html')
-  print(posts)
   context = {
     'posts': posts,
   }
@@ -20,7 +19,6 @@ def get_posts(request):
 def create_post(request):
   age_group = request.POST.get('age_group')
   state = request.POST.get('state')
-  print(request.user)
   post = Post.objects.create(age_group=age_group, state=state, user=request.user)
   return HttpResponse(f'Post {post.id} created', status=201)
 
