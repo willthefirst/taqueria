@@ -19,4 +19,4 @@ python manage.py makemigrations guacamole
 python manage.py migrate
 
 # Install database fixtures
-python manage.py loaddata guacamole/fixtures/posts.json
+python manage.py loaddata guacamole/fixtures/data.json
