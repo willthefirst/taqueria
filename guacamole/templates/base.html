@@ -17,6 +17,13 @@
         {% if user.is_authenticated %}
           <div>
             <a href="{% url 'logout' %}">Sign out</a>
+            <form hx-delete="{% url 'api-1.0.0:delete_account' %}"
+                  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                  hx-confirm="Are you sure?"
+                  hx-swap="outerHTML"
+                  hx-target="this">
+              <button type="submit">Delete account</button>
+            </form>
           </div>
         {% endif %}
       {% endblock navbar %}

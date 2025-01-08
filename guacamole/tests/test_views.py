@@ -13,6 +13,7 @@ class GlobalViewsTestCase(TestCase):
         response = self.client.get('/asdf')
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
+        
 class RegistrationViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -54,7 +55,6 @@ class RegistrationViewsTestCase(TestCase):
         expected_template_path = os.path.join(settings.BASE_DIR, 'guacamole', 'templates', 'registration', 'logged_out.html')
         self.assertEqual(response.templates[0].origin.name, expected_template_path)
 
-
     def test_password_reset_page(self):
         response = self.client.get('/accounts/password_reset/')
         self.assertEqual(response.status_code, 200)
@@ -75,3 +75,4 @@ class RegistrationViewsTestCase(TestCase):
         response = self.client.get('/accounts/reset/done/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'registration/password_reset_complete.html')
+ 
