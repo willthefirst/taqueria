@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+  <meta http-equiv="refresh"
+        content="5;url={% url 'django_registration_register' %}">
   <h1>Account deleted</h1>
   <p>
-    Back to <a href="{% url 'django_registration_register' %}" hx-boost="true">registration page</a>
+    You will be redirected to the <a href="{% url 'django_registration_register' %}" hx-boost="true">registration page</a> in 5 seconds.
   </p>
 {% endblock content %}

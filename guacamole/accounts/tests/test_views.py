@@ -7,8 +7,5 @@ class AccountViewsTestCase(TestCase):
         self.client.login(username='testuser', password='12345')
         response = self.client.delete('/accounts/')
         self.assertEqual(User.objects.count(), 0)
-        # After successful deletion, user is redirected to the login page
-        self.assertEqual(response.status_code, 302)
-        # Check that it sets the location header to '/accounts/deletion/complete'
-        # print(response)
-        # self.assertEqual(response['Location'], '/accounts/deletion/complete')
+        self.assertEqual(response.status_code, 303)
+        self.assertEqual(response['Location'], '/account-deleted')

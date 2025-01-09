@@ -1,13 +1,11 @@
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from ninja import Router
-from django.template import loader
 
 router = Router()
 
 @router.delete("/")
 def delete_account(request):
-  print('here')
   request.user.delete()
-  # Load deletion_copmlete.html template
-  template = loader.get_template('accounts/deletion_complete.html')
-  return HttpResponse(template.render({}, request), status=302)
+  request.session.flush()
+  return HttpResponseRedirect(reverse('api-1.0.0:account_deleted'), status=303)
