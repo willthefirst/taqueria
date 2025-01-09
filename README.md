@@ -4,7 +4,6 @@
 
 [The big spreadsheet](https://docs.google.com/spreadsheets/d/1TuYWxL2T_N-pSu8TwCEgKb5vM3JAp8re7imdczCbWqE/edit?usp=sharing)
 
-- User can delete their own account
 - Posts needs pagination and filtering
 
 ## Development
