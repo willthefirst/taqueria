@@ -9,3 +9,10 @@ class AccountViewsTestCase(TestCase):
         self.assertEqual(User.objects.count(), 0)
         self.assertEqual(response.status_code, 303)
         self.assertEqual(response['Location'], '/account-deleted')
+
+    def test_user_can_logout(self):
+        user = User.objects.create_user(username='testuser', password='12345')
+        self.client.login(username='testuser', password='12345')
+        response = self.client.get('/accounts/logout')
+        self.assertEqual(response.status_code, 303)
+        self.assertEqual(response['Location'], '/logged-out')

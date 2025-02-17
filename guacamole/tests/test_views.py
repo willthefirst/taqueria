@@ -47,9 +47,8 @@ class RegistrationViewsTestCase(TestCase):
         self.assertEqual(response.templates[0].origin.name, expected_template_path)
     
     def test_logged_out_page(self):
-        response = self.client.get('/accounts/logout/')
+        response = self.client.get('/logged-out')
         self.assertEqual(response.status_code, 200)
-        print(response.templates[0].origin)
         self.assertTemplateUsed(response, 'registration/logged_out.html')
         # Assert that this is using the custom logout page located at guacamole/templates/registration/logged_out.html, not the default one from django admin
         expected_template_path = os.path.join(settings.BASE_DIR, 'guacamole', 'templates', 'registration', 'logged_out.html')

@@ -13,3 +13,8 @@ http.add_router("/posts/", posts_router, auth=django_auth)
 def account_deleted(request):
     template = loader.get_template('accounts/deletion_complete.html')
     return HttpResponse(template.render({}, request))
+
+@http.get("/logged-out")
+def logged_out(request):
+    template = loader.get_template('registration/logged_out.html')
+    return HttpResponse(template.render({}, request))
