@@ -45,7 +45,7 @@ python manage.py shell
 To run tests:
 
 ```bash
-python manage.py test guacamole/tests
+python manage.py test guacamole
 ```
 
 To dump fixtures:
